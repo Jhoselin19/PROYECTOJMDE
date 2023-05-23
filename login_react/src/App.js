@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {Login} from './components/Login'
-import { Registrar } from './components/Registrar';
+import { Registrar } from './components/Registrar'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Login/>}/>
-        <Route exact path="registro/" element={<Registrar/>}/>
+        <Route exact path="/Registrar" element={<Registrar/>}/>
       </Routes>
       </BrowserRouter> 
     </div>
