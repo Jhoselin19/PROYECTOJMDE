@@ -3,7 +3,7 @@
     background-color: white;
   }
 
-  body {
+  .loginBody {
     background-image: url("../img/VidaEduTECSUP.png");
     background-size: cover;
     background-repeat: no-repeat;

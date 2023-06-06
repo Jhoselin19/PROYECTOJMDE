@@ -1,0 +1,28 @@
+.pagina {
+    position: relative;
+    height: 100vh;
+    background-image: url('../img/iniciotec.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  
+  .pagina::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Ajusta el valor de la opacidad para hacerlo más oscuro */
+    z-index: -1; /* Establece un índice z negativo para colocar el fondo en el fondo */
+  }
+  
+  .content {
+    text-align: center;
+    justify-content: center;
+    margin-top: 300px;
+  }
+
+  
+  
