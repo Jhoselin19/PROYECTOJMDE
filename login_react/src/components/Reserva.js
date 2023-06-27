@@ -15,7 +15,15 @@ export const Reserva = () => {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                     <NavLink to="/Inicio" className="nav-link h5 text-center" activeClassName="active">Inicio</NavLink>
-                    <NavLink to="/" className="nav-link h5 text-center" activeClassName="active">Nosotros</NavLink>
+                    <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Especialidades
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/psicologia">Psicologia</a></li>
+                    <li><a class="dropdown-item" href="/medicina">Medicina</a></li>
+                  </ul>
+                </li>
                     <NavLink to="/" className="nav-link h5 text-center" activeClassName="active">Perfil</NavLink>
                     <NavLink to="/Reserva" className="nav-link h5 text-center" activeClassName="active">Reserva</NavLink>
                 </div>

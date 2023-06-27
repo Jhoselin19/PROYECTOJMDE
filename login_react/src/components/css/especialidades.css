@@ -1,0 +1,25 @@
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .pagina_especialidades {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .contenido {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .footer {
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+  }
