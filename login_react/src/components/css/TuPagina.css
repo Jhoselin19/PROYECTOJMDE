@@ -1,10 +1,12 @@
-.pagina {
-    position: relative;
+body {
+  margin: 0;
+  padding: 0;
+}
+.pagina_inicio{
     height: 100vh;
-    background-image: url('../img/iniciotec.png');
+    background-image: url('../img/fondoGeneral.webp');
     background-size: cover;
     background-position: center;
-    overflow: hidden;
   }
   
   .pagina::after {
@@ -21,8 +23,18 @@
   .content {
     text-align: center;
     justify-content: center;
-    margin-top: 300px;
+    margin-top: 200px;
   }
 
+  .pagina_inicio {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
   
+  .footer {
+    margin-top: auto;
+  }
+  
+
   

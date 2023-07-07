@@ -15,7 +15,10 @@ export const Login = () => {
     if (usu.length === 0 || pas.length === 0) {
       alert("Complete los datos faltantes!!");
     } else {
-      if (usu === "74851982" && pas === "123") {
+      const registros = obtenerRegistros();
+      const usuarioEncontrado = registros.find(registro => registro.dni === usu && registro.password === pas);
+
+      if (usuarioEncontrado) {
         setMiLogin(true);
       } else {
         setMiLogin(false);
@@ -26,14 +29,23 @@ export const Login = () => {
     }
   }
 
+  const obtenerRegistros = () => {
+    var datos = localStorage.getItem("registroslogin");
+    if(datos){
+      return JSON.parse(datos);
+    } else {
+      return [];
+    }
+  }
+
   if (miLogin === true) {
     return <Inicio />;
   }
 
   return (
-    <div className=" loginBody container-fluid d-flex justify-content-center align-items-center">
+    <div className=" login_cuerpo login-container d-flex justify-content-center align-items-center">
       <div className="row">
-        <div className="contenedorCentral col-md-12">
+        <div className="contenedorCentral col-md-12 overflow-auto">
           <div className="container-wrapper d-flex flex-column justify-content-center align-items-center">
             <div className="row">
               <div className="col-md-6 d-flex justify-content-end pr-4">

@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -8,25 +7,43 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-top: 10px; /* Separación superior */
 }
 
-.contenido {
-  flex: 1;
+.container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Alineación superior */
+  padding: 5px; /* Espacio interior */
+}
+
+.contenido-superior {
+  padding: 20px; /* Ajusta el espacio superior */
+  text-align: center; /* Centra el texto */
+  margin-left: 200px; /* Agrega espacio a la izquierda */
 }
 
 .rectangulo {
-  width: 50%;
-  max-width: 600px;
+  width: 300px;
   background-color: lightgray;
   border: 1px solid gray;
-  padding: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.icono {
+  margin-bottom: 10px;
+}
+
+.contenido {
+  font-size: 16px;
 }
 
 .footer {
   background-color: lightgray;
   padding: 20px;
   text-align: center;
+  margin-top: auto;
 }
+
+

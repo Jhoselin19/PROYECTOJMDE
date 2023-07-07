@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./css/contactos.css";
+import tecsupNosotros from "./img/nosotro.avif";
+import tecsupNosotro from "./img/tecnosotros.jpg";
+import "./css/nosotros.css";
 
-export const Contactos = () => {
+export const Nosotros = () => {
   return (
-    <div className="pagina_contactos">
-      <div id="caja_menu" style={{ textAlign: "left" }}>
+    <div className="pagina_nosotros" style={{ textAlign: "center", margin: "auto" }}>
+      <div style={{ textAlign: "left" }}>
       <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{ marginTop: 0 }}>
           <div className="container-fluid">
             <label className="navbar-brand h5" href=" ">TECSUP</label>
@@ -36,52 +38,43 @@ export const Contactos = () => {
             </div>
           </div>
         </nav>
-      </div><br></br>
-
-      <div className="contenido-superior" style={{ textAlign: "left" }}>
-        <h1>Contactanos</h1><br></br>
-        <p style={{ fontSize: "20px" }}> ¿Cómo podemos ayudarte?</p>
       </div>
 
-      <div className="container">
+      <div className="container-fluid container-cuerp">
         <div className="row">
-          <div className="col-md-3 rectangulo-largo">
-            <div className="rectangulo">
-              <div className="icono">
-               <img src="https://assets.stickpng.com/images/5a4525cd546ddca7e1fcbc84.png" alt="" loading="lazy" style={{ width: "15%" }} />
-              </div>
-              <div className="contenido">
-                <p style={{ textAlign: "left"}}><strong>Llamanos</strong></p>
-                <p style={{ textAlign: "left" , color: "blue" }}>
-                  <span style={{color: "black"}}>Teléfono: </span>
-                  <strong>8-586-258</strong>
-                </p>
-                <p style={{ textAlign: "left" , color: "blue" }}>
-                  <span style={{color: "black"}}>Celular: </span>
-                  <strong>987-983-345</strong>
-                </p>
+          <div className="col-md-3">
+            <div className="elementor-widget-container">
+              <div className="elementor-image">
+                <img src={tecsupNosotros} alt="" loading="lazy" width="400" height="500" />
               </div>
             </div>
           </div>
           <div className="col-md-3">
-            <div className="rectangulo">
-              <div className="icono">
-               <img src="https://cdn-icons-png.flaticon.com/512/4187/4187236.png" alt="" loading="lazy" style={{ width: "21%" }} />
-              </div>
-              <div className="contenido">
-                <p style={{ textAlign: "left"}}><strong>Buscanos</strong></p>
-                <p style={{ textAlign: "left" , color: "blue" }}><strong>http://Tecsup.edu.pe</strong></p>
+            <div className="elementor-widget-container">
+              <div className="elementor-image">
+                <img src={tecsupNosotro} alt="" loading="lazy" style={{ width: "71%" }} />
               </div>
             </div>
           </div>
-          <div className="col-md-3">
-            <div className="rectangulo">
-              <div className="icono">
-               <img src="https://cdn-icons-png.flaticon.com/512/4804/4804075.png" alt="" loading="lazy" style={{ width: "22%" }} />
+          <div className="col-md-5">
+            <div className="elementor-widget-container">
+              <div className="elementor-element elementor-element-2ab0cf2 elementor-widget elementor-widget-heading" data-id="2ab0cf2" data-element_type="widget" data-widget_type="heading.default">
+                <div className="elementor-widget-container">
+                  <p className="elementor-heading-title elementor-size-default">Quienes somos</p>
+                </div>
               </div>
-              <div className="contenido">
-                <p style={{ textAlign: "left"}}><strong>E-mail</strong></p>
-                <p style={{ textAlign: "left" , color: "blue" }}><strong>topico@tecsup.edu.pe</strong></p>
+              <div className="elementor-widget-container">
+                <div className="elementor-text-editor elementor-clearfix">
+                  <h2><strong>¿Por qué nosotros?</strong></h2>
+                </div>
+                <div className="elementor-text-editor elementor-clearfix" style={{ textAlign: "left" }}>
+                  <p><strong>Misión:</strong></p>
+                  <p>Somos un Centro Médico certificado y especializado, brindamos atención integral en salud eficiente y oportuna con innovación permanente de procedimientos médicos; garantizando a los pacientes que su salud está en las mejores manos.</p>
+                </div>
+                <div className="elementor-text-editor elementor-clearfix" style={{ textAlign: "left" }}> 
+                  <p><strong>Visión:</strong></p>
+                  <p>Somos un Centro Médico certificado y especializado, brindamos atención integral en salud eficiente y oportuna con innovación permanente de procedimientos médicos; garantizando a los pacientes que su salud está en las mejores manos.</p>
+                </div>
               </div>
             </div>
           </div>

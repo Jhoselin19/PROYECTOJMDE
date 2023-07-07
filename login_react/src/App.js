@@ -6,7 +6,9 @@ import { Registrar } from './components/Registrar'
 import { Reserva } from './components/Reserva';
 import { Inicio } from './components/Inicio';
 import { Contactos } from './components/Contactos';
-import { Especialidades } from './components/Especialidades';
+import { Psicologia } from './components/Psicologia';
+import { Medicina } from './components/Medicina';
+import { Nosotros } from './components/Nosotros'
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Route exact path="/Registrar" element={<Registrar/>}/>
         <Route exact path="/Reserva" element={<Reserva/>}/>
         <Route exact path="/Contactos" element={<Contactos/>}/>
-        <Route exact path="/Especialidades" element={<Especialidades/>}/>
+        <Route exact path="/Psicologia" element={<Psicologia/>}/>
+        <Route exact path="/Medicina" element={<Medicina/>}/>
+        <Route exact path="/Nosotros" element={<Nosotros/>}/>
       </Routes>
       </BrowserRouter> 
     </div>
