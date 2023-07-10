@@ -1,33 +1,77 @@
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link  } from 'react-router-dom';
 import "./css/reserva.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Reserva = () => {
   const [reservas, setReservas] = useState([]); // Estado para almacenar las reservas
+
+  useEffect(() => {
+    // Realizar la solicitud GET a la API de Spring para obtener las reservas
+    fetch('http://localhost:8081/api/v1/reservas/lista')
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Error al obtener las reservas.');
+        }
+      })
+      .then(data => {
+        setReservas(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const {
       txtnombre,
-      txtapellido,
+      txtapellidos,
       txttelefono,
-      txtcurso,
+      txtespecialidad,
       txtingreso,
       txthora
     } = event.target.elements;
 
+    // Mostrar el aviso de confirmación
+  const confirmMessage = `¿Estás seguro de realizar tu reservar para el día ${txtingreso.value}?`;
+  if (!window.confirm(confirmMessage)) {
+    return; // Si el usuario cancela, no se realiza la reserva
+  }
+  
     const reserva = {
       nombre: txtnombre.value,
-      apellido: txtapellido.value,
+      apellidos: txtapellidos.value,
       telefono: txttelefono.value,
-      curso: txtcurso.value,
-      ingreso: txtingreso.value,
-      hora: txthora.value
+      especialidad: { id: parseInt(txtespecialidad.value), nombre: txtespecialidad.options[txtespecialidad.selectedIndex].text },
+      fecha: txtingreso.value,
+      horario: txthora.value
     };
-
-    setReservas([...reservas, reserva]);
-
+  
+    // Realizar la solicitud POST a la API para guardar la reserva
+    fetch('http://localhost:8081/api/v1/reservas/guardar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reserva)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          // Reserva guardada exitosamente, actualizar el estado de las reservas
+          setReservas([...reservas, data]);
+        } else {
+          // Ocurrió un error al guardar la reserva, mostrar mensaje de error
+          alert('No se pudo guardar la reserva. Por favor, elija otro horario.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  
     // Limpiar los campos del formulario
     event.target.reset();
   };
@@ -73,7 +117,7 @@ export const Reserva = () => {
         </nav>
         </div><br></br>
 
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-sm-12 col-md-9 col-lg-4 col-xl-4">
               <div class="card mt-3">
                 <div class="card-body">
@@ -83,17 +127,17 @@ export const Reserva = () => {
                       <input type="text" id="txtnombre" name="txtnombre" placeholder="Nombre" class="form-control"></input>
                     </div>
                     <div class="form-group mt-2">
-                      <input type="text" id="txtapellido" name="txtapellido" placeholder="Apellido" class="form-control"></input>
+                      <input type="text" id="txtapellidos" name="txtapellidos" placeholder="Apellidos" class="form-control"></input>
                     </div>
                     <div class="form-group mt-2">
                       <input type="text" id="txttelefono" name="txttelefono" placeholder="Telefono" class="form-control"></input>
                     </div>
                     <div class="form-group mt-2" required>
                                 <div class="custom-select-arrow">
-                                    <select name="txtcurso" class="form-group form-control custom-select" id="txtcurso">
+                                    <select name="txtespecialidad" class="form-group form-control custom-select" id="txtespecialidad">
                                         <option value="">Especialidad</option>
-                                        <option value="Psicologia">Psicologia</option>
-                                        <option value="Medicina">Medicina</option>
+                                        <option value="2">Psicologia</option>
+                                        <option value="1">Medicina</option>
                                     </select>
                                 </div>
                             </div>
@@ -115,23 +159,28 @@ export const Reserva = () => {
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-              <h1>Registro de Reserva de citas</h1>
+              <h1><u> MIS RESERVAS</u></h1>
               <div class="table-responsive py-2">
                 <table class="table table-light">
-                  <thead className="table-primary">
+                  <thead className="table-success">
                     <tr>
                       <th>Cita</th>
                       <th>Fecha - Hora</th>
-                      <th>Información</th>
+                      <th>Especialidad</th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     {reservas.map((reserva, index) => (
                       <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{reserva.ingreso} - {reserva.hora}</td>
-                        <td>{reserva.curso}</td>
-                      </tr>
+                      <td>{index + 1}</td>
+                      <td>{reserva.fecha && reserva.horario ? `${reserva.fecha} - ${reserva.horario}` : ''}</td>
+                      <td>{reserva.especialidad && reserva.especialidad.nombre}</td>
+                      <td>
+                      <Link to={`/factura/${reserva.id}`} className="btn btn-primary">Ver factura</Link>
+                      </td>
+
+                    </tr>
                     ))}
                   </tbody>
                 </table>
@@ -141,6 +190,8 @@ export const Reserva = () => {
             <div class="footer">
               &copy; 2021, Tecsup. All Rights Reserved.
             </div>
+
+            
           </div>
         </div>
       </body>

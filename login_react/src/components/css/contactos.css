@@ -10,7 +10,7 @@ body {
   padding-top: 10px; /* Separación superior */
 }
 
-.container {
+.container_rectangulos{
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Alineación superior */
@@ -18,15 +18,15 @@ body {
 }
 
 .contenido-superior {
-  padding: 20px; /* Ajusta el espacio superior */
+  padding: 60px; /* Ajusta el espacio superior */
   text-align: center; /* Centra el texto */
   margin-left: 200px; /* Agrega espacio a la izquierda */
 }
 
 .rectangulo {
   width: 300px;
-  background-color: lightgray;
-  border: 1px solid gray;
+  background-color: rgb(199, 222, 238);
+  border: 1px solid rgb(8, 43, 52);
   padding: 40px;
   text-align: center;
 }
@@ -40,10 +40,17 @@ body {
 }
 
 .footer {
-  background-color: lightgray;
+  background-color: rgba(0, 147, 239, 0.303);
   padding: 20px;
   text-align: center;
   margin-top: auto;
+}
+
+.pagina_contactos{
+  height: 100vh;
+  background-image: url('https://img.freepik.com/fotos-premium/desenfoque-fondo-camino-hospital-blanco-corto_7180-2422.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 

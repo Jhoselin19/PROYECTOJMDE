@@ -8,7 +8,8 @@ import { Inicio } from './components/Inicio';
 import { Contactos } from './components/Contactos';
 import { Psicologia } from './components/Psicologia';
 import { Medicina } from './components/Medicina';
-import { Nosotros } from './components/Nosotros'
+import { Nosotros } from './components/Nosotros';
+import { Factura } from './components/Factura';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/Psicologia" element={<Psicologia/>}/>
         <Route exact path="/Medicina" element={<Medicina/>}/>
         <Route exact path="/Nosotros" element={<Nosotros/>}/>
+        <Route exact path="/factura/:id" element={<Factura />}/>
       </Routes>
       </BrowserRouter> 
     </div>

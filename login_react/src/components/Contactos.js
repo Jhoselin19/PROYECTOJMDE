@@ -39,11 +39,11 @@ export const Contactos = () => {
       </div><br></br>
 
       <div className="contenido-superior" style={{ textAlign: "left" }}>
-        <h1>Contactanos</h1><br></br>
-        <p style={{ fontSize: "20px" }}> ¿Cómo podemos ayudarte?</p>
+      <u><h1>Contactanos</h1></u><br></br>
+        <p style={{ fontSize: "20px" }}><strong>¿Cómo podemos ayudarte?</strong></p>
       </div>
 
-      <div className="container">
+      <div className="container_rectangulos">
         <div className="row">
           <div className="col-md-3 rectangulo-largo">
             <div className="rectangulo">

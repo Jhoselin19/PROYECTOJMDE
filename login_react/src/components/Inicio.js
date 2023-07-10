@@ -43,6 +43,7 @@ export const Inicio = () => {
       <div className="content">
         <h1 className="text-center display-4">Topico Tecsup</h1>
         <p className="text-center h4">Pensando en tu bienestar y salud. Trabajando con el mejor equipo</p>
+        <p className="text-center h4 text-muted">Atención y reservas de 8:00am - 5:00pm</p>
         <div className="form-group mt-4 text-center">
           <NavLink className="btn btn-success mx-2" to="/Contactos">Contactanos</NavLink>
           <NavLink className="btn btn-success mx-2" to="/Nosotros">Nosotros</NavLink>

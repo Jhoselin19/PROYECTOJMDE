@@ -4,12 +4,30 @@ body {
 }
 .pagina_inicio{
     height: 100vh;
-    background-image: url('../img/fondoGeneral.webp');
+    background-image: url('https://www.shutterstock.com/image-photo/hands-medical-doctor-clipboard-health-260nw-327516011.jpg');
     background-size: cover;
     background-position: center;
   }
   
-  .pagina::after {
+  .pagina_inicio {
+    position: relative; /* Agrega posición relativa para que el pseudoelemento sea posicionado correctamente */
+  }
+  
+  .pagina_inicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../img/fondoGeneral.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; /* Ajusta el valor de opacidad para hacerlo más oscuro */
+    z-index: -1;
+  }
+  
+  .pagina_inicio::after {
     content: '';
     position: absolute;
     top: 0;
@@ -17,8 +35,10 @@ body {
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.8); /* Ajusta el valor de la opacidad para hacerlo más oscuro */
-    z-index: -1; /* Establece un índice z negativo para colocar el fondo en el fondo */
+    z-index: -2; /* Establece un índice z negativo para colocar el fondo en el fondo */
   }
+  
+  
   
   .content {
     text-align: center;
@@ -35,6 +55,7 @@ body {
   .footer {
     margin-top: auto;
   }
+  
   
 
   

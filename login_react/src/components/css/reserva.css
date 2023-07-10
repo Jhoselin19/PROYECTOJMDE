@@ -24,10 +24,14 @@ body {
   }
   
   .footer {
-    background-color: lightgray;
+    background-color: rgba(0, 147, 239, 0.303);
     padding: 20px;
     text-align: center;
     margin-top: auto;
   }
-  
-  
+  .pagina_reserva{
+    height: 100vh;
+    background-image: url('https://img.freepik.com/fotos-premium/desenfoque-fondo-camino-hospital-blanco-corto_7180-2422.jpg');
+    background-size: cover;
+    background-position: center;
+  }
